@@ -16,6 +16,12 @@ Kg = -(C*F0^(-1)*B0)^(-1)
 a = poly(F0+delA)
 b = poly(F0-delA)
 check = true;
+for i = 1:4
+    if a(i) < 0 || b(i) < 0
+        check = false;
+        disp(-1)
+    end
+end
 if sigF < sigF0
     disp(0)
     check = false;    
@@ -32,4 +38,9 @@ elseif min(a(1),b(1))*min(a(4),b(4)) > max(a(2),b(2))*max(a(3),b(3))
     disp(4)
     check = false;
 end
-disp(check)
+if check
+    disp("Congratulations, chosen frequency meet all of the requirements!")
+    w
+else
+    disp("Chosen frequency does not meet requirements, please choose another one")
+end
